@@ -1,0 +1,1 @@
+(()=>{const b=document.getElementById('copy-bibtex'),x=document.getElementById('bibtex');if(!b||!x)return;b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(x.textContent);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1600)}catch(e){b.textContent='Select & copy'}})})();

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3DWay: Generalizing Robot Manipulation via 3D Consistent Waypoints</title>
+  <meta name="description" content="Official project page for 3DWay, accepted at ECCV 2026." />
+  <meta property="og:title" content="3DWay: Generalizing Robot Manipulation via 3D Consistent Waypoints" />
+  <meta property="og:description" content="Official project page for 3DWay, accepted at ECCV 2026." />
+  <meta property="og:image" content="static/images/social_preview.svg" />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="static/css/index.css" />
+</head>
+<body>
+<main>
+  <section class="hero">
+    <div class="container narrow center">
+      <div class="venue">ECCV 2026</div>
+      <h1><span class="brand">3DWay</span>: Generalizing Robot Manipulation via 3D Consistent Waypoints</h1>
+      <div class="authors">
+        <a href="#">Author One</a><sup>1</sup>,
+        <a href="#">Author Two</a><sup>1</sup>,
+        <a href="#">Author Three</a><sup>2</sup>,
+        <a href="#">Author Four</a><sup>1</sup>
+      </div>
+      <div class="affiliations">
+        <span><sup>1</sup> Tsinghua University</span>
+        <span><sup>2</sup> Affiliation</span>
+      </div>
+      <div class="link-row">
+        <a class="button primary" href="PAPER_URL" target="_blank" rel="noopener">Paper</a>
+        <a class="button" href="CODE_URL" target="_blank" rel="noopener">Code</a>
+        <a class="button" href="VIDEO_URL" target="_blank" rel="noopener">Video</a>
+      </div>
+      <p class="tagline">From <strong>VLM-friendly multi-view 2D predictions</strong> to <strong>explicit and actionable 3D robot trajectories</strong>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <figure class="figure hero-figure">
+        <img src="static/images/teaser.svg" alt="3DWay teaser placeholder" />
+        <figcaption>3DWay predicts multi-view consistent 2D waypoints with a fine-tuned VLM, reconstructs them geometrically into 3D, and supports both direct execution and foundation-VLA integration.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container narrow">
+      <h2>Overview</h2>
+      <p>A fundamental modality gap between vision-language models (VLMs) and robot actions limits the transfer of pretrained vision-language capabilities to manipulation. Trajectory-based intermediate representations offer a promising bridge, but <strong>2D trajectories lack explicit 3D grounding</strong>, while depth-lifted trajectories are sensitive to <strong>depth noise and free-space ambiguity</strong>.</p>
+      <p>We introduce <strong>3D Consistent Waypoints (3DWay)</strong>, an efficient, explicit, and actionable 3D trajectory representation. Instead of directly regressing 3D coordinates with a VLM, 3DWay predicts <strong>multi-view consistent 2D waypoints</strong> and reconstructs them via geometric triangulation. The resulting 3D trajectories can be directly executed for simple tasks or used as explicit geometric priors for foundation VLAs.</p>
+      <div class="contribution-grid">
+        <div class="mini-card"><h3>3D-Consistent Representation</h3><p>Actionable 3D task trajectories without depth sensing.</p></div>
+        <div class="mini-card"><h3>VLM-Compatible Generation</h3><p>Multi-view consistent 2D prediction followed by geometric reconstruction.</p></div>
+        <div class="mini-card"><h3>Flexible Manipulation Interface</h3><p>Direct execution or foundation-VLA integration for improved generalization.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div><div class="eyebrow">Method</div><h2>How 3DWay Works</h2></div>
+        <p>Let the VLM reason in image space; let geometry recover the 3D structure.</p>
+      </div>
+      <figure class="figure"><img src="static/images/method.svg" alt="3DWay method placeholder" /></figure>
+      <div class="step-grid">
+        <article class="step"><div class="step-index">01</div><h3>Multi-view 2D Waypoint Prediction</h3><p>Given multi-view RGB observations and a language instruction, a fine-tuned VLM predicts corresponding 2D waypoint sequences in text form.</p></article>
+        <article class="step"><div class="step-index">02</div><h3>Geometric Triangulation</h3><p>With known camera parameters, corresponding 2D waypoints are triangulated into explicit 3D points, forming the complete 3DWay trajectory.</p></article>
+        <article class="step"><div class="step-index">03</div><h3>Policy Execution</h3><p>3DWay supports direct waypoint execution or Adaptive Waypoint-Guided Fine-tuning for foundation VLAs.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark">
+    <div class="container">
+      <div class="section-heading inverse"><div><div class="eyebrow">Results</div><h2>Generalization, Data Efficiency, and Real-World Transfer</h2></div></div>
+      <div class="result-grid">
+        <article class="result-card"><div class="result-value">64.0%</div><h3>RLBench Unseen</h3><p>Direct execution of 3DWay demonstrates strong generalization and effective transfer of pretrained VLM capabilities.</p></article>
+        <article class="result-card"><div class="result-value">17.6 → 46.1%</div><h3>Few-shot π0</h3><p>3DWay-augmented fine-tuning substantially boosts few-shot VLA performance with only 10 demonstrations per task.</p></article>
+        <article class="result-card"><div class="result-value">21.7 → 65.8%</div><h3>Real Robot</h3><p>3DWay integration substantially improves average success on real-world basic tasks.</p></article>
+      </div>
+      <div class="result-note"><strong>Key ablation:</strong> removing multi-view consistent supervision drops RLBench unseen success from <strong>64.0%</strong> to <strong>22.0%</strong>.</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Visualization</div><h2>Multi-view Consistency and Open-World Generalization</h2></div></div>
+      <div class="gallery">
+        <figure class="figure"><img src="static/images/qualitative_1.svg" alt="Qualitative example placeholder 1" /><figcaption>Multi-view consistency</figcaption></figure>
+        <figure class="figure"><img src="static/images/qualitative_2.svg" alt="Qualitative example placeholder 2" /><figcaption>Novel objects and scenes</figcaption></figure>
+        <figure class="figure"><img src="static/images/qualitative_3.svg" alt="Qualitative example placeholder 3" /><figcaption>Semantic instructions</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Demos</div><h2>Real-World Manipulation</h2></div><p>Replace these placeholders with short autoplaying muted MP4 clips or YouTube embeds.</p></div>
+      <div class="demo-grid">
+        <div class="video-placeholder"><span>Demo 01</span><small>Basic manipulation</small></div>
+        <div class="video-placeholder"><span>Demo 02</span><small>Visual generalization</small></div>
+        <div class="video-placeholder"><span>Demo 03</span><small>Semantic reasoning</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container narrow">
+      <h2>Citation</h2>
+      <div class="citation-box">
+        <button id="copy-bibtex" class="copy-button" type="button">Copy</button>
+        <pre id="bibtex">@inproceedings{3dway2026,
+  title     = {3DWay: Generalizing Robot Manipulation via 3D Consistent Waypoints},
+  author    = {TODO: Add Authors},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</pre>
+      </div>
+    </div>
+  </section>
+
+  <footer><div class="container narrow center"><p>Project page for <strong>3DWay</strong> · ECCV 2026.</p></div></footer>
+</main>
+<script src="static/js/index.js"></script>
+</body>
+</html>

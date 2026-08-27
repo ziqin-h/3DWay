@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760">
+  <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0%" stop-color="#eef3ff"/><stop offset="100%" stop-color="#f5efff"/></linearGradient></defs>
+  <rect width="1600" height="760" rx="26" fill="url(#g)"/>
+  <rect x="2" y="2" width="1596" height="756" rx="24" fill="none" stroke="#cbd4e2" stroke-width="4"/>
+  <text x="800.0" y="362.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#273044">3DWay Teaser</text>
+  <text x="800.0" y="432.0" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#6b7280">Replace with your main teaser / overview figure</text>
+</svg>
