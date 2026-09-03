@@ -16,21 +16,28 @@
   <section class="hero">
     <div class="container narrow center">
       <div class="venue">ECCV 2026</div>
-      <h1><span class="brand">3DWay</span>: Generalizing Robot Manipulation via 3D Consistent Waypoints</h1>
+      <h1><span class="brand">3DWay</span>: Generalizing Robot Manipulation<br>via 3D Consistent Waypoints</h1>
       <div class="authors">
-        <a href="#">Author One</a><sup>1</sup>,
-        <a href="#">Author Two</a><sup>1</sup>,
-        <a href="#">Author Three</a><sup>2</sup>,
-        <a href="#">Author Four</a><sup>1</sup>
+        Ziqin Huang<sup>1,*</sup>,
+        Yingyue Li<sup>1,*</sup>,
+        Chenyangguang Zhang<sup>2</sup>,
+        Ruida Zhang<sup>1</sup>,
+        Yuxin Chen<sup>3</sup>,
+        Gu Wang<sup>1</sup>,
+        Xingyu Liu<sup>1</sup>,
+        Masayoshi Tomizuka<sup>3</sup>,
+        Xiangyang Ji<sup>1</sup>
       </div>
       <div class="affiliations">
         <span><sup>1</sup> Tsinghua University</span>
-        <span><sup>2</sup> Affiliation</span>
+        <span><sup>2</sup> ETH Zürich</span>
+        <span><sup>3</sup> University of California, Berkeley</span>
       </div>
+      <p class="equal-contribution"><sup>*</sup> Equal contribution</p>
       <div class="link-row">
         <a class="button primary" href="PAPER_URL" target="_blank" rel="noopener">Paper</a>
-        <a class="button" href="CODE_URL" target="_blank" rel="noopener">Code</a>
-        <a class="button" href="VIDEO_URL" target="_blank" rel="noopener">Video</a>
+        <a class="button" href="https://github.com/ziqin-h/3DWay" target="_blank" rel="noopener">Code</a>
+        <a class="button" href="https://youtu.be/UXh61yWgI44" target="_blank" rel="noopener">Video</a>
       </div>
       <p class="tagline">From <strong>VLM-friendly multi-view 2D predictions</strong> to <strong>explicit and actionable 3D robot trajectories</strong>.</p>
     </div>
@@ -39,7 +46,7 @@
   <section class="section">
     <div class="container">
       <figure class="figure hero-figure">
-        <img src="static/images/teaser.svg" alt="3DWay teaser placeholder" />
+        <img src="static/images/teaser.png" alt="3DWay pipeline overview" />
         <figcaption>3DWay predicts multi-view consistent 2D waypoints with a fine-tuned VLM, reconstructs them geometrically into 3D, and supports both direct execution and foundation-VLA integration.</figcaption>
       </figure>
     </div>
@@ -60,11 +67,21 @@
 
   <section class="section">
     <div class="container">
-      <div class="section-heading">
+      <div class="section-heading method-heading">
         <div><div class="eyebrow">Method</div><h2>How 3DWay Works</h2></div>
-        <p>Let the VLM reason in image space; let geometry recover the 3D structure.</p>
+        <p class="method-tagline">Let the VLM reason in image space; let geometry recover the 3D structure.</p>
       </div>
-      <figure class="figure"><img src="static/images/method.svg" alt="3DWay method placeholder" /></figure>
+      <div class="pipeline-sequence" id="pipeline-sequence">
+        <figure class="figure pipeline-panel">
+          <img class="pipeline-frame" data-index="0" data-gif="static/images/pipeline_1.gif" data-first="static/images/pipeline_1_first.png" data-last="static/images/pipeline_1_last.png" data-duration="13220" src="static/images/pipeline_1_first.png" alt="Pipeline stage 1" />
+        </figure>
+        <figure class="figure pipeline-panel">
+          <img class="pipeline-frame" data-index="1" data-gif="static/images/pipeline_2.gif" data-first="static/images/pipeline_2_first.png" data-last="static/images/pipeline_2_last.png" data-duration="12670" src="static/images/pipeline_2_first.png" alt="Pipeline stage 2" />
+        </figure>
+        <figure class="figure pipeline-panel">
+          <img class="pipeline-frame" data-index="2" data-gif="static/images/pipeline_3.gif" data-first="static/images/pipeline_3_first.png" data-last="static/images/pipeline_3_last.png" data-duration="14810" src="static/images/pipeline_3_first.png" alt="Pipeline stage 3" />
+        </figure>
+      </div>
       <div class="step-grid">
         <article class="step"><div class="step-index">01</div><h3>Multi-view 2D Waypoint Prediction</h3><p>Given multi-view RGB observations and a language instruction, a fine-tuned VLM predicts corresponding 2D waypoint sequences in text form.</p></article>
         <article class="step"><div class="step-index">02</div><h3>Geometric Triangulation</h3><p>With known camera parameters, corresponding 2D waypoints are triangulated into explicit 3D points, forming the complete 3DWay trajectory.</p></article>
@@ -114,7 +131,7 @@
         <button id="copy-bibtex" class="copy-button" type="button">Copy</button>
         <pre id="bibtex">@inproceedings{3dway2026,
   title     = {3DWay: Generalizing Robot Manipulation via 3D Consistent Waypoints},
-  author    = {TODO: Add Authors},
+  author    = {Huang, Ziqin and Li, Yingyue and Zhang, Chenyangguang and Zhang, Ruida and Chen, Yuxin and Wang, Gu and Liu, Xingyu and Tomizuka, Masayoshi and Ji, Xiangyang},
   booktitle = {European Conference on Computer Vision (ECCV)},
   year      = {2026}
 }</pre>
