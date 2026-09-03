@@ -14,9 +14,9 @@
 <body>
 <main>
   <section class="hero">
-    <div class="container narrow center">
+    <div class="container center">
       <div class="venue">ECCV 2026</div>
-      <h1><span class="brand">3DWay</span>: Generalizing Robot Manipulation<br>via 3D Consistent Waypoints</h1>
+      <h1><span class="brand">3DWay</span>: Generalizing Robot Manipulation<br />via 3D Consistent Waypoints</h1>
       <div class="authors">
         Ziqin Huang<sup>1,*</sup>,
         Yingyue Li<sup>1,*</sup>,
@@ -71,21 +71,37 @@
         <div><div class="eyebrow">Method</div><h2>How 3DWay Works</h2></div>
         <p class="method-tagline">Let the VLM reason in image space; let geometry recover the 3D structure.</p>
       </div>
-      <div class="pipeline-sequence" id="pipeline-sequence">
-        <figure class="figure pipeline-panel">
-          <img class="pipeline-frame" data-index="0" data-gif="static/images/pipeline_1.gif" data-first="static/images/pipeline_1_first.png" data-last="static/images/pipeline_1_last.png" data-duration="13220" src="static/images/pipeline_1_first.png" alt="Pipeline stage 1" />
-        </figure>
-        <figure class="figure pipeline-panel">
-          <img class="pipeline-frame" data-index="1" data-gif="static/images/pipeline_2.gif" data-first="static/images/pipeline_2_first.png" data-last="static/images/pipeline_2_last.png" data-duration="12670" src="static/images/pipeline_2_first.png" alt="Pipeline stage 2" />
-        </figure>
-        <figure class="figure pipeline-panel">
-          <img class="pipeline-frame" data-index="2" data-gif="static/images/pipeline_3.gif" data-first="static/images/pipeline_3_first.png" data-last="static/images/pipeline_3_last.png" data-duration="14810" src="static/images/pipeline_3_first.png" alt="Pipeline stage 3" />
-        </figure>
-      </div>
-      <div class="step-grid">
-        <article class="step"><div class="step-index">01</div><h3>Multi-view 2D Waypoint Prediction</h3><p>Given multi-view RGB observations and a language instruction, a fine-tuned VLM predicts corresponding 2D waypoint sequences in text form.</p></article>
-        <article class="step"><div class="step-index">02</div><h3>Geometric Triangulation</h3><p>With known camera parameters, corresponding 2D waypoints are triangulated into explicit 3D points, forming the complete 3DWay trajectory.</p></article>
-        <article class="step"><div class="step-index">03</div><h3>Policy Execution</h3><p>3DWay supports direct waypoint execution or Adaptive Waypoint-Guided Fine-tuning for foundation VLAs.</p></article>
+      <div class="method-stages" id="pipeline-sequence">
+        <div class="method-stage">
+          <figure class="figure pipeline-panel">
+            <video class="pipeline-video" muted playsinline preload="auto" src="static/videos/pipeline_1.mp4"></video>
+          </figure>
+          <article class="step">
+            <div class="step-index">01</div>
+            <h3>Multi-view 2D Waypoint Prediction</h3>
+            <p>Given multi-view RGB observations and a language instruction, a fine-tuned VLM predicts corresponding 2D waypoint sequences in text form.</p>
+          </article>
+        </div>
+        <div class="method-stage">
+          <figure class="figure pipeline-panel">
+            <video class="pipeline-video" muted playsinline preload="auto" src="static/videos/pipeline_2.mp4"></video>
+          </figure>
+          <article class="step">
+            <div class="step-index">02</div>
+            <h3>Geometric Triangulation</h3>
+            <p>With known camera parameters, corresponding 2D waypoints are triangulated into explicit 3D points, forming the complete 3DWay trajectory.</p>
+          </article>
+        </div>
+        <div class="method-stage">
+          <figure class="figure pipeline-panel">
+            <video class="pipeline-video" muted playsinline preload="auto" src="static/videos/pipeline_3.mp4"></video>
+          </figure>
+          <article class="step">
+            <div class="step-index">03</div>
+            <h3>Policy Execution</h3>
+            <p>3DWay supports direct waypoint execution or Adaptive Waypoint-Guided Fine-tuning for foundation VLAs.</p>
+          </article>
+        </div>
       </div>
     </div>
   </section>

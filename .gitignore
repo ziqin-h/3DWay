@@ -1,1 +1,5 @@
 scripts/
+docs/static/images/pipeline_meta.txt
+docs/static/images/pipeline_*.gif
+docs/static/images/pipeline_*_first.png
+docs/static/images/pipeline_*_last.png
