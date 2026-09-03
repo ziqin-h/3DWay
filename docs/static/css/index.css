@@ -217,6 +217,15 @@ h3 { font-size: 1.05rem; margin-bottom: 8px; }
 }
 
 .gallery, .demo-grid { grid-template-columns: repeat(3, 1fr); }
+.demo-video {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: #000;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+.demo-panel figcaption { margin-top: 10px; }
 .video-placeholder {
   min-height: 190px;
   border: 1px dashed #aab2bd;
