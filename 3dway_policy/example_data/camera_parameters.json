@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "extrinsics_convention": "camera_to_world",
+  "coordinate_notes": {
+    "trajectory_coordinates": "normalized_xy_by_image_width_and_height",
+    "quaternion_order": "xyzw",
+    "view_mapping": "view1=left_shoulder, view2=right_shoulder"
+  },
+  "views": {
+    "view1": {
+      "source_camera": "left_shoulder",
+      "width": 512,
+      "height": 512,
+      "intrinsics": [
+        [-703.3542416, 0.0, 256.0],
+        [0.0, -703.3542416, 256.0],
+        [0.0, 0.0, 1.0]
+      ],
+      "camera_to_world": [
+        [0.173648179, 0.892538846, 0.416198105, -0.174999714],
+        [0.984807789, -0.157378674, -0.073387146, 0.200000003],
+        [-0.000000178813934, 0.422618657, -0.906307697, 1.97999895],
+        [0.0, 0.0, 0.0, 1.0]
+      ]
+    },
+    "view2": {
+      "source_camera": "right_shoulder",
+      "width": 512,
+      "height": 512,
+      "intrinsics": [
+        [-703.3542416, 0.0, 256.0],
+        [0.0, -703.3542416, 256.0],
+        [0.0, 0.0, 1.0]
+      ],
+      "camera_to_world": [
+        [-0.173648357, 0.892538846, 0.416198105, -0.174997091],
+        [0.984807789, 0.157378793, 0.0733869076, -0.200000003],
+        [-0.00000011920929, 0.422618628, -0.906307697, 1.97999227],
+        [0.0, 0.0, 0.0, 1.0]
+      ]
+    }
+  }
+}
+

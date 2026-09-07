@@ -1,0 +1,3 @@
+[submodule "VILA"]
+	path = VILA
+	url = https://github.com/NVlabs/VILA.git

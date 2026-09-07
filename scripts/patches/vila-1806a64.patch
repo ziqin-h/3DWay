@@ -1,0 +1,77 @@
+diff --git a/llava/train/train.py b/llava/train/train.py
+index fa31610..58e947c 100755
+--- a/llava/train/train.py
++++ b/llava/train/train.py
+@@ -827 +827,9 @@ def train():
+-    callbacks = [AutoResumeCallback(), TimeoutTerminateCallback()]
++    total_time_limit = training_args.total_time_limit
++    if total_time_limit <= 0:
++        total_time_limit = 240
++    callbacks = [
++        AutoResumeCallback(),
++        TimeoutTerminateCallback(
++            total_time_limit=total_time_limit, pre_terminate_time=training_args.pre_terminate_time
++        ),
++    ]
+diff --git a/server.py b/server.py
+index b38b72d..a9e7e71 100644
+--- a/server.py
++++ b/server.py
+@@ -12 +12 @@ from threading import Thread
+-from typing import List, Literal, Optional, Union, get_args
++from typing import List, Literal, Optional, Union
+@@ -86,13 +86 @@ class ChatCompletionRequest(BaseModel):
+-    model: Literal[
+-        "NVILA-15B",
+-        "VILA1.5-3B",
+-        "VILA1.5-3B-AWQ",
+-        "VILA1.5-3B-S2",
+-        "VILA1.5-3B-S2-AWQ",
+-        "Llama-3-VILA1.5-8B",
+-        "Llama-3-VILA1.5-8B-AWQ",
+-        "VILA1.5-13B",
+-        "VILA1.5-13B-AWQ",
+-        "VILA1.5-40B",
+-        "VILA1.5-40B-AWQ",
+-    ]
++    model: str
+@@ -136,12 +123,0 @@ def load_image(image_url: str) -> Image:
+-def get_literal_values(cls, field_name: str):
+-    field_type = cls.__annotations__.get(field_name)
+-    if field_type is None:
+-        raise ValueError(f"{field_name} is not a valid field name")
+-    if hasattr(field_type, "__origin__") and field_type.__origin__ is Literal:
+-        return get_args(field_type)
+-    raise ValueError(f"{field_name} is not a Literal type")
+-
+-
+-VILA_MODELS = get_literal_values(ChatCompletionRequest, "model")
+-
+-
+@@ -197 +173 @@ async def chat_completions(request: ChatCompletionRequest):
+-        image = None
++        images = []
+@@ -210 +186 @@ async def chat_completions(request: ChatCompletionRequest):
+-                            image = load_image(content.image_url.url)
++                            images.append(load_image(content.image_url.url))
+@@ -243,2 +219,2 @@ async def chat_completions(request: ChatCompletionRequest):
+-        if image is not None:
+-            prompt = [image, normalized_prompt]
++        if images:
++            prompt = images + [normalized_prompt]
+diff --git a/environment_setup.sh b/environment_setup.sh
+--- a/environment_setup.sh
++++ b/environment_setup.sh
+@@ -24,6 +24,10 @@ pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.5
+ # Install VILA
+ pip install -e ".[train,eval]"
+ 
++# Install PS3.
++pip install ps3-torch
++
++# Downgrade wandb
++pip install wandb==0.20.1
++
+ # Quantization requires the newest triton version, and introduce dependency issue
+ pip install triton==3.1.0
+ 
