@@ -4,8 +4,8 @@
 
 **ECCV 2026**
 
-<a href="" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Paper-3DWay-blue" alt="Paper PDF"></a>
-<a href=""><img src="https://img.shields.io/badge/arXiv-coming_soon-b31b1b" alt="arXiv"></a>
+<a href="https://arxiv.org/abs/2609.08224" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Paper-3DWay-blue" alt="Paper PDF"></a>
+<a href="https://arxiv.org/abs/2609.08224"><img src="https://img.shields.io/badge/arXiv-2609.08224-b31b1b" alt="arXiv"></a>
 <a href="https://ziqin-h.github.io/3DWay/"><img src="https://img.shields.io/badge/Project_Page-green" alt="Project Page"></a>
 <a href="https://huggingface.co/liyy4586/3DWay-15B"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-yellow" alt="Hugging Face Model"></a>
 <a href="https://huggingface.co/datasets/liyy4586/3DWay-Data"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-yellow" alt="Hugging Face Dataset"></a>
@@ -19,7 +19,7 @@ Tsinghua University · ETH Zürich · University of California, Berkeley · ITOO
 
 <a href="https://ziqin-h.github.io/3DWay/"><strong>Project Page</strong></a>
 &nbsp;·&nbsp;
-<a href="./ECCV_2026_3DWay.pdf"><strong>Paper</strong></a>
+<a href="https://arxiv.org/abs/2609.08224"><strong>Paper</strong></a>
 &nbsp;·&nbsp;
 <a href="https://youtu.be/UXh61yWgI44"><strong>Video</strong></a>
 
@@ -59,7 +59,7 @@ The released pipeline supports:
 
 The paper evaluates 3DWay in simulation and on a real AgileX PIPER robot.
 Selected headline results are shown below; see the
-[paper](.pdf) for protocols, uncertainty estimates, and full
+[paper](https://arxiv.org/abs/2609.08224) for protocols, uncertainty estimates, and full
 ablations.
 
 | Evaluation | Setting | Reported success rate |
